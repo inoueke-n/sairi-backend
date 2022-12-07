@@ -1,0 +1,66 @@
+{
+  "name": "@inoueke-n/sairi-backend",
+  "version": "0.3.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "api": "nodemon --exec npx ts-node -r tsconfig-paths/register ./src/api/index.ts",
+    "api:local": "cross-env NODE_ENV=test npm run api",
+    "api:local2": "cross-env NODE_ENV=test webpack --mode=development && nodemon --exec node dist/index.js",
+    "test": "cross-env NODE_ENV=test ava --fail-fast",
+    "test:ci": "cross-env NODE_ENV=test ava --tap | tap-xunit > TEST-result.xml",
+    "build:api": "cross-env NODE_ENV=test webpack --mode=development",
+    "build:api:prod": "webpack --mode=development",
+    "build:api:test": "webpack --mode=none",
+    "build": "npm run build:api:prod"
+  },
+  "contributors": [
+    {
+      "name": "Naoto Ishida"
+    },
+    {
+      "name": "Tetsuya Kanda"
+    },
+    {
+      "name": "Sentaro Onizuka"
+    }
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@inoueke-n/sairi-common": "^0.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "folktale": "^3.0.1-ts",
+    "lodash": "^4.17.21",
+    "multer": "^1.4.4",
+    "mysql": "^2.18.1",
+    "nextcloud-link": "^1.2.9",
+    "qs": "^6.11.0",
+    "ramda": "^0.28.0",
+    "stream-buffers": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.14",
+    "@types/lodash": "^4.14.191",
+    "@types/multer": "^1.4.7",
+    "@types/mysql": "^2.15.21",
+    "@types/qs": "^6.9.7",
+    "@types/ramda": "^0.28.20",
+    "@types/stream-buffers": "^3.0.4",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "eslint": "^8.29.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.8.0",
+    "ts-loader": "^9.4.2",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.1",
+    "typescript": "^4.9.3",
+    "webpack-cli": "^5.0.0"
+  }
+}
